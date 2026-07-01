@@ -1,2 +1,105 @@
-body { font-family: sans-serif; text-align: center; background: #f0f0f0; }
-h1 { color: #333; }
+/* Базовые настройки */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    /* Цвет фона "темная тема" */
+    animation: fadeIn 0.2s ease;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    background-color: #1a1a1a; 
+    /* Светлый цвет текста */
+    color: #e0e0e0; 
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.navbar {
+    position: fixed; /* Прибиваем к верху экрана */
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    background: rgba(30, 30, 30, 0.7); /* Темный фон с прозрачностью */
+    backdrop-filter: blur(10px); /* Тот самый эффект "островка" с размытием */
+    z-index: 100; /* Чтобы меню всегда было поверх картинки */
+}
+
+.navbar nav {
+    display: flex;
+    gap: 40px; /* Увеличили расстояние между кнопками */
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #b3b3b3; /* Чуть посветлее, чем было */
+    font-size: 16px; /* Чуть крупнее */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #ffffff; /* Белый при наведении */
+}
+
+/* Заголовок с переносом строки */
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 20px; /* Отдаляем заголовок от текста снизу */
+}
+
+.container {
+    display: grid;
+    /* Теперь картинка справа (вторая колонка) прижата краем */
+    grid-template-columns: 1fr 1fr; 
+    height: 100vh;
+    width: 100%;
+}
+
+.right-side {
+    height: 100%;
+    width: 100%;
+}
+
+.right-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Убирает микро-зазоры под картинкой */
+}
+
+.left-side {
+    padding-top: 120px; /* Отступ сверху, чтобы текст был ниже прозрачного меню */
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.left-side p {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;       /* Увеличиваем размер для читаемости */
+    line-height: 1.6;      /* Добавляем "воздух" между строками */
+    color: #c2c2c2;        /* Мягкий серый цвет, чтобы не слепило глаза */
+    max-width: 400px;      /* Ограничиваем ширину, чтобы текст не растягивался на весь экран */
+    font-weight: 300;
+}

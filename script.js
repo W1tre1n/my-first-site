@@ -1,6 +1,22 @@
-document.getElementById('myButton').addEventListener('click', () => {
-    alert('Сайт работает!');
-});
-document.getElementById('profileButton').addEventListener('click', () => {
-    window.location.href = 'profile.html'; // Это команда переадресации
+document.addEventListener('DOMContentLoaded', () => {
+    // Находим все ссылки на сайте
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Если ссылка ведет на внешний сайт или якорь, пропускаем
+            if (link.hostname !== window.location.hostname) return;
+
+            e.preventDefault(); // Останавливаем мгновенный переход
+            const targetUrl = link.href;
+
+            // Запускаем анимацию исчезновения
+            document.body.classList.add('fade-out');
+
+            // Ждем 0.5 сек (время нашей анимации) и переходим
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 200);
+        });
+    });
 });
