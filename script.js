@@ -19,4 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 200);
         });
     });
+    // Анимация
+    const btns = document.querySelectorAll('.social-btn');
+    
+    btns.forEach((btn, index) => {
+        // Задержка для каждой следующей плиты
+        btn.style.transitionDelay = `${index * 0.15}s`;
+        
+        // Добавляем класс для запуска анимации
+        setTimeout(() => {
+            btn.style.opacity = '1';
+            btn.style.transform = 'translateY(0)';
+        }, 100);
+    });
 });

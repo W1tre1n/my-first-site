@@ -69,9 +69,10 @@ h1 {
 .container {
     display: grid;
     /* Теперь картинка справа (вторая колонка) прижата краем */
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1.5fr 1fr; 
     height: 100vh;
     width: 100%;
+    gap: 40px;
 }
 
 .right-side {
@@ -100,6 +101,76 @@ h1 {
     font-size: 30px;       /* Увеличиваем размер для читаемости */
     line-height: 1.6;      /* Добавляем "воздух" между строками */
     color: #c2c2c2;        /* Мягкий серый цвет, чтобы не слепило глаза */
-    max-width: 400px;      /* Ограничиваем ширину, чтобы текст не растягивался на весь экран */
+    max-width: 100%;      /* Ограничиваем ширину, чтобы текст не растягивался на весь экран */
     font-weight: 300;
+}
+
+.right-side video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видео заполнит весь блок, как и картинка */
+    display: block;
+}
+
+/* Контейнер для плавного появления плит */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    width: 400px; /* Сделали плиты крупнее */
+    background: #1f1f1f; /* Чуть темнее фона */
+    border: 2px solid transparent;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #b3b3b3;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0; /* Для FadeIn */
+    transform: translateY(30px); /* Для выплывания */
+}
+
+/* Стили для брендовых цветов */
+.social-btn.telegram { border-color: #0088cc; }
+.social-btn.youtube { border-color: #ff0000; }
+.social-btn.instagram { border-color: #e1306c; }
+.social-btn.tiktok { border-color: #040404; }
+
+/* Эффект при наведении на контейнер */
+.social-links:hover .social-btn {
+    filter: brightness(0.4); /* Затемняем все */
+    transform: scale(0.95); /* Уменьшаем все */
+}
+
+/* Эффект для активной плиты */
+.social-links .social-btn:hover {
+    filter: brightness(1); /* Возвращаем яркость активной */
+    transform: scale(1.05); /* Увеличиваем активную */
+    color: white;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две равные колонки */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-btn img {
+    width: 24px;       /* Строго заданный размер */
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
