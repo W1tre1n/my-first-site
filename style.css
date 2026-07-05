@@ -14,7 +14,7 @@ body {
     /* Светлый цвет текста */
     color: #e0e0e0; 
     font-family: 'Inter', Helvetica, Arial, sans-serif;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -213,11 +213,18 @@ h1 {
 
 .video-container {
     width: 100%;
-    max-width: 800px; /* Ограничим ширину, чтобы видео не было гигантским */
-    height: 500px;
+    max-width: 600px; /* Ограничим ширину, чтобы видео не было гигантским */
+    aspect-ratio: 16 / 9;
+    height: auto;
     border-radius: 15px;
     overflow: hidden;
     border: 3px solid #333;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .contact-card {

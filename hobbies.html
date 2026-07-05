@@ -57,6 +57,7 @@
             <source src="video.mp4" type="video/mp4">
         </video>
     </div>
+    </main>
 
     <div class="music-player">
             <img src="cover.jpg" alt="Обложка">
@@ -69,23 +70,6 @@
             </div>
             <audio id="bg-music" src="music.mp3"></audio>
     </div>
-
-    <script>
-        function toggleMusic() {
-            const audio = document.getElementById('bg-music');
-            const btn = document.querySelector('.controls button');
-            if (audio.paused) {
-                audio.play();
-                btn.textContent = '⏸';
-            } else {
-                audio.pause();
-                btn.textContent = '▶';
-            }
-        }
-    </script>
-
-    </main>
-
     <script src="script.js"></script>
 </body>
 </html>

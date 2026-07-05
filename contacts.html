@@ -38,7 +38,9 @@
                 Ваш браузер не поддерживает видео.
             </video>
         </div>
-            <div class="music-player">
+    </main>
+
+        <div class="music-player">
             <img src="cover.jpg" alt="Обложка">
             <div class="music-info">
                 <h4>Kyoto x I'm god</h4>
@@ -49,22 +51,6 @@
             </div>
             <audio id="bg-music" src="music.mp3"></audio>
         </div>
-
-        <script>
-        function toggleMusic() {
-            const audio = document.getElementById('bg-music');
-            const btn = document.querySelector('.controls button');
-            if (audio.paused) {
-                audio.play();
-                btn.textContent = '⏸';
-            } else {
-                audio.pause();
-                btn.textContent = '▶';
-            }
-        }
-        </script>
-    </main>
-
     <script src="script.js"></script>
 </body>
 </html>
