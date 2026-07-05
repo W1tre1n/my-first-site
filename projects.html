@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>W1tre1n | Проекты</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -19,11 +20,51 @@
     <main class="container">
         <div class="left-side">
             <h1>Проекты</h1>
-            <p>И это тоже потом сделаю</p>
+            <p>Я иногда делаю проекты на заказ и выкладываю их на YouTube.</p>
+            <p>Ниже вы можете посмотреть мой последний проект, который я его создал.</p>
+        
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="550" 
+                    src="https://www.youtube.com/embed/kgcI4TA0OVE" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
+
         <div class="right-side">
             <img src="photo2.jpg" alt="photo">
         </div>
+
+    <div class="music-player">
+            <img src="cover.jpg" alt="Обложка">
+            <div class="music-info">
+                <h4>Kyoto x I'm god</h4>
+                <p>Yung Lean (mashup by kitty228)</p>
+            </div>
+            <div class="controls">
+                <button onclick="toggleMusic()">▶</button>
+            </div>
+            <audio id="bg-music" src="music.mp3"></audio>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const audio = document.getElementById('bg-music');
+            const btn = document.querySelector('.controls button');
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = '⏸';
+            } else {
+                audio.pause();
+                btn.textContent = '▶';
+            }
+        }
+    </script>
+
     </main>
 
     <script src="script.js"></script>

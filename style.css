@@ -94,6 +94,7 @@ h1 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 20px;
 }
 
 .left-side p {
@@ -137,10 +138,10 @@ h1 {
 }
 
 /* Стили для брендовых цветов */
-.social-btn.telegram { border-color: #0088cc; }
+.social-btn.telegram { border-color: #0088cc; transform: scale(1.02); background: #252525; }
 .social-btn.youtube { border-color: #ff0000; }
 .social-btn.instagram { border-color: #e1306c; }
-.social-btn.tiktok { border-color: #040404; }
+.social-btn.tiktok { border-color: #e0e0e0; }
 
 /* Эффект при наведении на контейнер */
 .social-links:hover .social-btn {
@@ -173,4 +174,136 @@ h1 {
     height: 24px;
     object-fit: contain;
     filter: brightness(0) invert(1);
+}
+
+.right-side img, .right-side video {
+    object-position: center; /* Центрируем, чтобы не обрезалось лицо/главное */
+}
+
+@media (max-width: 768px) {
+    .music-player {
+        left: 10px;
+        right: 10px; /* Растянется по ширине экрана */
+        width: auto;
+    }
+    .container {
+        grid-template-columns: 1fr; /* Одна колонка вместо двух */
+        height: auto; /* Позволяем сайту расти вниз */
+    }
+
+    .right-side {
+        height: 300px; /* Фиксируем высоту картинки на телефоне */
+        order: -1;     /* Переносим картинку наверх */
+    }
+
+    .left-side {
+        padding: 20px; /* Убираем лишние отступы */
+    }
+
+    h1 {
+        font-size: 48px; /* Заголовок поменьше для экрана телефона */
+    }
+
+    .navbar {
+        padding: 10px 0;
+        font-size: 12px;
+        gap: 15px; /* Сжимаем кнопки меню */
+    }
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px; /* Ограничим ширину, чтобы видео не было гигантским */
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #333;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #1a1a1a;
+    border: 1px solid #0088cc;
+    border-radius: 15px;
+    width: fit-content; /* Карточка подстроится под размер содержимого */
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: scale(1.02); /* Легкий эффект при наведении */
+    background: #252525;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.contact-info span {
+    color: #0088cc;
+    font-size: 14px;
+}
+
+/* Музыкальный плеер - минимализм */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #1f1f1f;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000; /* Чтобы всегда был поверх всего */
+    width: 335px;
+}
+
+.music-player img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.music-info {
+    flex-grow: 1;
+}
+
+.music-info h4 {
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+}
+
+.music-info p {
+    font-size: 12px;
+    margin: 0;
+    color: #888;
+}
+
+.controls button {
+    background: none;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    border-color: #fff;
 }

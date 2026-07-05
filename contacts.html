@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>W1tre1n | Контакты</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -19,14 +20,49 @@
     <main class="container">
         <div class="left-side">
             <h1>Контакты</h1>
-            <p>Потом доделаю (наверна)</p>
+            <p>Я с удовольствием отвечу вам, если вам нужно что-то от меня по делу.</p>
+            <p>За спам и/или флудом - вы попадаете в чёрный список.</p>
+
+                <a href="https://t.me/w1tre1n" target="_blank" class="contact-card">
+                    <img src="avatar.jpg" alt="Аватар" class="avatar">
+                    <div class="contact-info">
+                        <h3>W1tre1n</h3>
+                        <span>Написать в Telegram</span>
+                    </div>
+                </a>
         </div>
+
         <div class="right-side">
             <video autoplay muted loop playsinline poster="preview2.jpg">
                 <source src="video2.mp4" type="video/mp4">
                 Ваш браузер не поддерживает видео.
             </video>
         </div>
+            <div class="music-player">
+            <img src="cover.jpg" alt="Обложка">
+            <div class="music-info">
+                <h4>Kyoto x I'm god</h4>
+                <p>Yung Lean (mashup by kitty228)</p>
+            </div>
+            <div class="controls">
+                <button onclick="toggleMusic()">▶</button>
+            </div>
+            <audio id="bg-music" src="music.mp3"></audio>
+        </div>
+
+        <script>
+        function toggleMusic() {
+            const audio = document.getElementById('bg-music');
+            const btn = document.querySelector('.controls button');
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = '⏸';
+            } else {
+                audio.pause();
+                btn.textContent = '▶';
+            }
+        }
+        </script>
     </main>
 
     <script src="script.js"></script>

@@ -33,3 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 });
+
+function toggleMusic() {
+    const audio = document.getElementById('bg-music');
+    const btn = document.querySelector('.controls button');
+    
+    // Проверка: существует ли вообще аудио-элемент
+    if (!audio) {
+        console.error("Ошибка: элемент с id='bg-music' не найден на странице!");
+        return;
+    }
+
+    try {
+        if (audio.paused) {
+            audio.play();
+            btn.textContent = '⏸';
+        } else {
+            audio.pause();
+            btn.textContent = '▶';
+        }
+    } catch (error) {
+        console.error("Ошибка при воспроизведении:", error);
+    }
+}
+
+function setVolume(val) {
+    document.getElementById('audio').volume = val;
+}
